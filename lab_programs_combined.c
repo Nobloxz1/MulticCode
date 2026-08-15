@@ -37,6 +37,17 @@ void dayOfWeekSwitch(void);
 void destinationPriceSwitch(void);
 void vowelConsonantSwitch(void);
 
+/* For Loop Structure (Lab 3) */
+void first10Natural(void);
+void first10Even(void);
+void countDown99to50(void);
+void squareFirst10(void);
+void fibonacciSeries(void);
+void multiplicationTable(void);
+void factorsOfNumber(void);
+void factorialOfNumber(void);
+void primeOrComposite(void);
+
 /* Menu helper */
 void showMenu(void);
 
@@ -87,6 +98,16 @@ int main() {
             case 27: destinationPriceSwitch(); break;
             case 28: vowelConsonantSwitch();   break;
 
+            case 29: first10Natural();         break;
+            case 30: first10Even();            break;
+            case 31: countDown99to50();        break;
+            case 32: squareFirst10();          break;
+            case 33: fibonacciSeries();        break;
+            case 34: multiplicationTable();    break;
+            case 35: factorsOfNumber();        break;
+            case 36: factorialOfNumber();      break;
+            case 37: primeOrComposite();       break;
+
             case 0:  printf("Exiting program. Goodbye!\n"); break;
             default: printf("Invalid choice, try again.\n");
         }
@@ -132,6 +153,16 @@ void showMenu(void) {
     printf("26. Day of the Week\n");
     printf("27. Bus Destination & Price (switch)\n");
     printf("28. Vowel or Consonant (switch)\n");
+    printf("-- For Loop Structure --\n");
+    printf("29. First 10 Natural Numbers\n");
+    printf("30. First 10 Even Numbers\n");
+    printf("31. Countdown 99 to 50\n");
+    printf("32. Square of First 10 Natural Numbers\n");
+    printf("33. Fibonacci Series (10 terms)\n");
+    printf("34. Multiplication Table\n");
+    printf("35. Factors of a Number\n");
+    printf("36. Factorial of a Number\n");
+    printf("37. Prime or Composite\n");
     printf(" 0. Exit\n");
     printf("==========================================\n");
 }
@@ -432,5 +463,106 @@ void vowelConsonantSwitch(void) {
             break;
         default:
             printf("Consonant\n");
+    }
+}
+
+/* ================= For Loop Structure ================= */
+
+void first10Natural(void) {
+    int i;
+    printf("First 10 Natural Numbers are:\n");
+    for (i = 1; i <= 10; i++) {
+        printf("%d\n", i);
+    }
+}
+
+void first10Even(void) {
+    int i;
+    printf("First 10 Even Numbers are:\n");
+    for (i = 2; i <= 20; i = i + 2) {
+        printf("%d\n", i);
+    }
+}
+
+void countDown99to50(void) {
+    int i;
+    printf("Numbers from 99 to 50 are:\n");
+    for (i = 99; i >= 50; i--) {
+        printf("%d\n", i);
+    }
+}
+
+void squareFirst10(void) {
+    int i, square;
+    printf("Squares of First 10 Natural Numbers are:\n");
+    for (i = 1; i <= 10; i++) {
+        square = i * i;
+        printf("%d\n", square);
+    }
+}
+
+void fibonacciSeries(void) {
+    int a, b, c, i;
+    a = 10;
+    b = 15;
+    printf("Fibonacci-style Series (10 terms, starting 10, 15):\n");
+    for (i = 1; i <= 10; i++) {
+        printf("%d\n", a);
+        c = a + b;
+        a = b;
+        b = c;
+    }
+}
+
+void multiplicationTable(void) {
+    int num, i, result;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    for (i = 1; i <= 10; i++) {
+        result = num * i;
+        printf("%d x %d = %d\n", num, i, result);
+    }
+}
+
+void factorsOfNumber(void) {
+    int n, i;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printf("Factors are: ");
+    for (i = 1; i < n; i++) {
+        if (n % i == 0) {
+            printf("%d\t", i);
+        }
+    }
+    printf("\n");
+}
+
+void factorialOfNumber(void) {
+    int n, i;
+    long f = 1;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++) {
+        f *= i;
+    }
+    printf("Factorial is %ld\n", f);
+}
+
+void primeOrComposite(void) {
+    int i, n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    if (n <= 1) {
+        printf("%d is neither prime nor composite\n", n);
+    } else {
+        int isPrime = 1;
+        for (i = 2; i <= n / 2; i++) {
+            if (n % i == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+        if (isPrime) printf("%d is prime\n", n);
+        else printf("%d is composite\n", n);
     }
 }
